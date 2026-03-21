@@ -1,0 +1,23 @@
+.mainH {
+  margin: 1.5rem 0rem;
+}
+
+.postJob label{
+  margin-top: 0.5rem;
+  margin-bottom: 5px;
+  font-size: 1.3rem;
+}
+
+textarea {
+  white-space: pre-line;
+  word-wrap: normal;
+}
+
+.fixedToTop{
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensures it stays above other content */
+  background-color: #fff;
+  width: 100%;
+  padding-bottom: 0.5px;
+}
