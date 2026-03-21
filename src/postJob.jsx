@@ -18,7 +18,7 @@ const PostJob = () => {
     async function handleSubmit(e){
         e.preventDefault()
         try {
-            let finalJobDetails = {...jobDetails, qualification: jobDetails.qualification.split(", ")}
+            let finalJobDetails = {...jobDetails, qualification: jobDetails.qualification.split("\n")}
             
             const response = await axios.post("https://job-posting-backend-eta.vercel.app/allJobs", finalJobDetails)
             if(response){
@@ -59,13 +59,13 @@ const PostJob = () => {
             <div className="postJob container mb-5">
                 <form onSubmit={handleSubmit}>
                     <label>Job Title:</label><br />
-                    <input type="text" className="form-control" name="title" value={jobDetails.title} onChange={handleChange} required/>
+                    <input type="text" className="form-control" name="title" value={jobDetails.title} placeholder="Enter Job Title" onChange={handleChange} required/>
                     <label>Company Name:</label><br />
-                    <input type="text" className="form-control" name="company" value={jobDetails.company} onChange={handleChange} required/>
+                    <input type="text" className="form-control" name="company" value={jobDetails.company} placeholder="Enter Company Name" onChange={handleChange} required/>
                     <label>Location:</label><br />
-                    <input type="text" className="form-control" name="location" value={jobDetails.location} onChange={handleChange} required/>
+                    <input type="text" className="form-control" name="location" value={jobDetails.location} placeholder="Enter Job Location" onChange={handleChange} required/>
                     <label>Salary:</label><br />
-                    <input type="number" className="form-control" name="salary" value={jobDetails.salary} onChange={handleChange} required/>
+                    <input type="number" className="form-control" name="salary" value={jobDetails.salary} placeholder="Enter Salary" onChange={handleChange} required/>
                     <label>Job Type:</label><br />
                     <select className="form-select" name="jobType" value={jobDetails.jobType} onChange={handleChange} required>
                         <option value="">---Select-Job Type---</option>
@@ -75,9 +75,9 @@ const PostJob = () => {
                         <option value="Part-time (Remote)">Part-time (Remote)</option>
                     </select>
                     <label>Job Description:</label><br />
-                    <textarea type="text" className="form-control" name="description" value={jobDetails.description} onChange={handleChange} required></textarea>
+                    <textarea type="text" className="form-control" name="description" value={jobDetails.description} placeholder="Enter Job Description" onChange={handleChange} required></textarea>
                     <label>Job Qualifications:</label><br />
-                    <textarea type="text" className="form-control" name="qualification" value={jobDetails.qualification} onChange={handleChange} required></textarea>
+                    <textarea type="text" className="form-control" name="qualification" value={jobDetails.qualification} placeholder="Enter Job Qualification: write each qualification required in a new line" onChange={handleChange} required></textarea>
                     <button type="submit" className="btn btn-primary mt-3">Post Job</button>
                 </form>
             </div>
