@@ -3,7 +3,7 @@ import Navbar from "./myNavbar";
 import useFetch from "./useFetch";
 
 const JobDetails = () => {
-    const {data, error, loading} = useFetch("http://localhost:3000/allJobs")
+    const {data, error, loading} = useFetch("https://job-posting-backend-eta.vercel.app/allJobs")
     const {id} = useParams()
 
     const currListing = data?.filter(job => job._id == id)

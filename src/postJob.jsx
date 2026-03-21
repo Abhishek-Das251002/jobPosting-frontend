@@ -20,7 +20,7 @@ const PostJob = () => {
         try {
             let finalJobDetails = {...jobDetails, qualification: jobDetails.qualification.split(", ")}
             
-            const response = await axios.post("http://localhost:3000/allJobs", finalJobDetails)
+            const response = await axios.post("https://job-posting-backend-eta.vercel.app/allJobs", finalJobDetails)
             if(response){
                 toast.success("Job posted successfully.")
                 setJobDetails({
