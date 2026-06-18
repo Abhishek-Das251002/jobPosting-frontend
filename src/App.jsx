@@ -7,14 +7,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 const App = () => {
-  const {data, error, loading, refetch} = useFetch("https://job-posting-backend-eta.vercel.app/allJobs")
+  const {data, error, loading, refetch} = useFetch("https://job-posting-be-latest.vercel.app/allJobs")
   const navigate = useNavigate()
 
   const [filterData, setFilterData] = useState([])
 
   async function handleDelete(jobId){
     try {
-      const response = await axios.delete(`https://job-posting-backend-eta.vercel.app/allJobs/${jobId}`)
+      const response = await axios.delete(`https://job-posting-be-latest.vercel.app/allJobs/${jobId}`)
       if(response){
         toast.error("Job posting Deleted.")
         refetch()
